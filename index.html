@@ -1,7 +1,17 @@
 <html>
-<head></head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style src="src/main.css"></style>
+</head>
 <body>
-  <div id="clock"></div>
-  <script src="bundle.js"></script>
+
+  <!-- Keep all styling in css, only geometry in svg. -->
+  <!-- Use 100 width -->
+  <svg id="clock" width=500 height=500 viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="25"/>
+  </svg>
+
+  <script src="src/utils.js"></script>
+  <script src="src/main.js"></script>
 </body>
 </html>

@@ -4,8 +4,9 @@
   "description": "A handy timeblock productivity tool",
   "main": "index.js",
   "scripts": {
-    "build": "browserify src/main.js > bundle.js",
-    "test": "mocha-phantomjs test.html"
+    "build": "",
+    "test": "mocha-phantomjs test.html",
+    "serve": "http-server -c-1"
   },
   "keywords": [
     "productivity",
@@ -15,16 +16,14 @@
   "author": "Fons de Leeuw",
   "license": "GPL-2.0",
   "dependencies": {
-    "backbone": "^1.2.3",
-    "jquery": "^2.1.4",
-    "snapsvg": "^0.4.0",
-    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "browserify": "^12.0.1",
     "chai": "^3.4.1",
+    "http-server": "^0.8.5",
     "mocha": "^2.3.4",
     "mocha-phantomjs": "^4.0.1",
-    "phantomjs": "^1.9.18"
+    "phantomjs": "^1.9.18",
+    "uglify-js": "^2.6.1"
   }
 }
