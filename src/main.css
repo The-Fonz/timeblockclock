@@ -1,3 +1,11 @@
 /*
  * Contains all clock styling
  */
+
+#clock .face {
+  fill: beige;
+}
+
+#clock .tb {
+  fill: green;
+}

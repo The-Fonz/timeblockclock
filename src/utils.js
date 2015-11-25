@@ -2,10 +2,32 @@
  * Utility functions here to keep main file readable
  */
 
-function utils_drawBlock(t, svg) {
-  var block = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  block.setAttribute('cx', 0);
-  block.setAttribute('cy', 0);
-  block.setAttribute('r', 50);
-  svg.appendChild(block);
+function utils_filledArc(centerX, centerY,
+  innerRadius, outerRadius, startAngle, endAngle) {
+  var m = Math;
+  var diff = (endAngle-startAngle);
+  // Make diff positive
+  var diff = diff < 0 ? diff+2*m.PI : diff;
+  var largeArcFlag = 0;
+  if (diff > m.PI) largeArcFlag = 1;
+  return `
+  M ${centerX+outerRadius*m.sin(startAngle)}
+    ${centerY-outerRadius*m.cos(startAngle)}
+  A ${outerRadius} ${outerRadius},
+   0, ${largeArcFlag}, 1,
+   ${centerX+outerRadius*m.sin(endAngle)}
+   ${centerY-outerRadius*m.cos(endAngle)}
+  L ${centerX+innerRadius*m.sin(endAngle)} ${centerY-innerRadius*m.cos(endAngle)}
+  A ${innerRadius} ${innerRadius},
+   0, ${largeArcFlag}, 0,
+   ${centerX+innerRadius*m.sin(startAngle)}
+   ${centerY-innerRadius*m.cos(startAngle)} Z`;
+}
+
+function utils_drawPath(pathstr, svg, cssclass) {
+  var svgPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  svgPath.setAttribute('d', pathstr);
+  svgPath.setAttribute('class', cssclass);
+  svg.appendChild(svgPath);
+  return svgPath;
 }
