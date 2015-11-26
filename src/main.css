@@ -2,10 +2,43 @@
  * Contains all clock styling
  */
 
+#clock {
+  height: 90%;
+}
+
+#clock text {
+  fill: black;
+  font-family: monospace;
+}
+#clock #time {
+  font-size: 12px;
+}
+#clock #timer {
+  font-size: 10px;
+}
+
 #clock .face {
   fill: beige;
 }
 
 #clock .tb {
-  fill: green;
+  fill: blue;
+}
+
+#clock #needle {
+  stroke-width: .4;
+  stroke: red;
+}
+
+#clock .hourmark, #clock .minutemark, #clock .halfmark {
+  stroke: black;
+}
+#clock .hourmark {
+  stroke-width: .3;
+}
+#clock .halfmark {
+  stroke-width: .3;
+}
+#clock .minutemark {
+  stroke-width: .1;
 }

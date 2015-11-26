@@ -31,3 +31,19 @@ function utils_drawPath(pathstr, svg, cssclass) {
   svg.appendChild(svgPath);
   return svgPath;
 }
+
+function utils_classifyMouse(x,y,w,round) {
+  var out = {inRadius: false};
+  var r = Math.sqrt(Math.pow(w/2-x, 2) + Math.pow(w/2-y, 2))/w*100;
+  //console.log(`${x} ${y} ${w} ${round}`);
+  //console.log("Dist r = "+r);
+  if ((r > 40) && (r < 50)) out.inRadius = true;
+  // Classify angle
+  var v = {x: -y+w/2, y: x-w/2};
+  var aRad = Math.acos( v.x / Math.sqrt(v.x*v.x + v.y*v.y) );
+  var aDeg = aRad * 180 / Math.PI;
+  if (x < w/2) aDeg = 360 - aDeg;
+  //console.log("Angle in degrees is: " + aDeg);
+  out.minute = Math.round(aDeg/2.5);
+  return out;
+}
