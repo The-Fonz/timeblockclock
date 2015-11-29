@@ -2,7 +2,9 @@
  * Utility functions here to keep main file readable
  */
 
-function utils_filledArc(centerX, centerY,
+var utils = {}
+
+utils.filledArc = function (centerX, centerY,
   innerRadius, outerRadius, startAngle, endAngle) {
   var m = Math;
   var diff = (endAngle-startAngle);
@@ -24,7 +26,7 @@ function utils_filledArc(centerX, centerY,
    ${centerY-innerRadius*m.cos(startAngle)} Z`;
 }
 
-function utils_drawPath(pathstr, svg, cssclass) {
+utils.drawPath = function (pathstr, svg, cssclass) {
   var svgPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
   svgPath.setAttribute('d', pathstr);
   svgPath.setAttribute('class', cssclass);
@@ -32,7 +34,7 @@ function utils_drawPath(pathstr, svg, cssclass) {
   return svgPath;
 }
 
-function utils_classifyMouse(x,y,w,round) {
+utils.classifyMouse = function (x,y,w,round) {
   var out = {inRadius: false};
   var r = Math.sqrt(Math.pow(w/2-x, 2) + Math.pow(w/2-y, 2))/w*100;
   //console.log(`${x} ${y} ${w} ${round}`);
@@ -47,3 +49,6 @@ function utils_classifyMouse(x,y,w,round) {
   out.minute = Math.round(aDeg/2.5);
   return out;
 }
+
+// CommonJS module export if available
+if (typeof(module) !== 'undefined') module.exports = utils;
