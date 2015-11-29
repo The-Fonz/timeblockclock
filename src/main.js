@@ -72,7 +72,7 @@ function initTimer(collection, clocktxt, clockneedle, timertxt, origTitle) {
 
   // Run once at start, then once every second
   update();
-  setInterval(update, 1000);
+  setInterval(update, 100);
 }
 
 // TIMEBLOCK CREATION CONTROLLER -----------------------------------------------
