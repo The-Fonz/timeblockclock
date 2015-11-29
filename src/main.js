@@ -34,7 +34,9 @@ function initView(svg, collection) {
   // a new Timeblock is added, and increased/decreased in size until mouseup
 }
 
-function initTimer(collection, clocktxt, clockneedle, timertxt, origTitle) {
+function initTimer(collection, clocktxt, clockneedle, timertxt, origTitle, sound) {
+  // Constant to specify update interval in ms
+  var INTERVAL = 100;
 
   function update() {
     var t = new Date();
@@ -56,6 +58,12 @@ function initTimer(collection, clocktxt, clockneedle, timertxt, origTitle) {
         var ttg = endt-curt;
         var mins = ttg%60;
         countdown = `${Math.floor(ttg/60)}:${mins<10 ? '0'+mins:mins}`;
+
+        // Quick hack, it's not pretty to put extra attributes on model
+        if (curt === endt && tb.ringed === undefined) {
+          ringding = true;
+          tb.ringed = true;
+        }
       }
     });
 
@@ -67,12 +75,15 @@ function initTimer(collection, clocktxt, clockneedle, timertxt, origTitle) {
       document.title = `${clockTime} - ${origTitle}`;
     }
     // If begin/end of block within last interval, play sound
-    if (ringding) console.log("PLAYSOUND");
+    if (ringding) {
+      console.log("PLAYSOUND");
+      sound.play();
+    }
   }
 
   // Run once at start, then once every second
   update();
-  setInterval(update, 100);
+  setInterval(update, INTERVAL);
 }
 
 // TIMEBLOCK CREATION CONTROLLER -----------------------------------------------
@@ -124,5 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var clocktxt = document.getElementById("time");
   var clockneedle = document.getElementById("needle");
   var timertxt = document.getElementById("timer");
-  initTimer(collection, clocktxt, clockneedle, timertxt, document.title);
+  var sound = document.getElementById("fanta");
+  initTimer(collection, clocktxt, clockneedle, timertxt, document.title, sound);
 });
