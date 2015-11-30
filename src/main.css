@@ -2,8 +2,32 @@
  * Contains all clock styling
  */
 
+/* Color schemes
+brown/blue/greenish -------------------------
+lightbrown brown lightorange blueish greenish
+#CCB664   #997E1D  #FFD396   #D6FAFF #64CCBD
+
+oasis --------------------------------------
+blue darkblue lightblue orange brownish
+#2062BF #1B4A8F #52AAF5  #BC925A #8B6E44
+*/
+
+body {
+  background: white;
+  text-align: center;
+} #clock .ring {
+  fill: none;
+}#clock #needle {
+  stroke-width: .8;
+  stroke: red;
+} #clock .tb {
+  fill: royalblue;
+}
+
 #clock {
   height: 90%;
+  display: block;
+  margin: auto;
 }
 
 #clock text {
@@ -16,20 +40,6 @@
 #clock #timer {
   font-size: 10px;
 }
-
-#clock .face {
-  fill: beige;
-}
-
-#clock .tb {
-  fill: blue;
-}
-
-#clock #needle {
-  stroke-width: .4;
-  stroke: red;
-}
-
 #clock .hourmark, #clock .minutemark, #clock .halfmark {
   stroke: black;
 }

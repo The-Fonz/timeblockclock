@@ -17,7 +17,7 @@ function initView(svg, collection) {
       console.log("Timeblock updated");
       var sang = tb.startt/2 *Math.PI/180;
       var eang = tb.endt/2 *Math.PI/180;
-      svgElem.setAttribute('d', utils.filledArc(50,50,40,50,sang,eang));
+      svgElem.setAttribute('d', utils.filledArc(50,50,35,50,sang,eang));
     });
     tb.listen('delete', function(){
       console.log("Timeblock deleted");

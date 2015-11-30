@@ -39,7 +39,7 @@ utils.classifyMouse = function (x,y,w,round) {
   var r = Math.sqrt(Math.pow(w/2-x, 2) + Math.pow(w/2-y, 2))/w*100;
   //console.log(`${x} ${y} ${w} ${round}`);
   //console.log("Dist r = "+r);
-  if ((r > 40) && (r < 50)) out.inRadius = true;
+  if ((r > 30) && (r < 50)) out.inRadius = true;
   // Classify angle
   var v = {x: -y+w/2, y: x-w/2};
   var aRad = Math.acos( v.x / Math.sqrt(v.x*v.x + v.y*v.y) );
