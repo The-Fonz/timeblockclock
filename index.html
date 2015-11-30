@@ -50,5 +50,21 @@
     <source src="sounds/fanta.mp3" type="audio/mp3">
   </audio>
 
+  <!-- Set random background image on load -->
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+      // Assume we have images with names in the range 1.jpg - n.jpg
+      var N = 4;
+      // Choose a random image
+      var imurl = "url('images/" + (Math.floor(Math.random()*N)+1) + ".jpg')";
+      // Set that as bg image for .setbgim
+      var bgelems = document.getElementsByClassName("setbgim");
+      for (var i=0; i<bgelems.length; i++) {
+        console.log("Setting to: "+imurl)
+        bgelems[i].style.backgroundImage = imurl;
+      }
+    });
+  </script>
+
 </body>
 </html>

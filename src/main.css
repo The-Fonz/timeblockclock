@@ -19,7 +19,6 @@ body {
   background-position: center top;
 }
 .setbgim {
-  background-image: url("../images/3.jpg");
   background-repeat: no-repeat;
 }
 #clockwrapper {
@@ -36,7 +35,7 @@ body {
   left: 0px;
   z-index: 99;
   background-position: center -10px;
-  -webkit-filter: blur(10px);
+  -webkit-filter: blur(15px);
   filter: blur(15px);
 }
 #clock {
