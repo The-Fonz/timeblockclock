@@ -2,16 +2,6 @@
  * Contains all clock styling
  */
 
-/* Color schemes
-brown/blue/greenish -------------------------
-lightbrown brown lightorange blueish greenish
-#CCB664   #997E1D  #FFD396   #D6FAFF #64CCBD
-
-oasis --------------------------------------
-blue darkblue lightblue orange brownish
-#2062BF #1B4A8F #52AAF5  #BC925A #8B6E44
-*/
-
 body {
   background: white;
   text-align: center;
@@ -24,10 +14,36 @@ body {
   fill: royalblue;
 }
 
-#clock {
+body {
+  margin: 10px;
+  background-position: center top;
+}
+.setbgim {
+  background-image: url("../images/3.jpg");
+  background-repeat: no-repeat;
+}
+#clockwrapper {
   height: 90%;
+  position: relative;
+  display: inline-block;
+}
+#clockbg {
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+  background-position: center -10px;
+  -webkit-filter: blur(10px);
+  filter: blur(15px);
+}
+#clock {
   display: block;
-  margin: auto;
+  height: 100%;
+  position: relative;
+  z-index: 100;
 }
 
 #clock text {

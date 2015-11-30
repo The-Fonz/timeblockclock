@@ -4,19 +4,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="src/main.css"/>
 </head>
-<body>
+<body class="setbgim">
 
   <!-- Keep all styling in css, only geometry in svg. -->
   <!-- Use 100 width -->
-  <svg id="clock" viewBox="0 0 100 100">
-    <circle class="ring" cx="50" cy="50" r="50"/>
+  <div id="clockwrapper">
+    <div id="clockbg" class="setbgim"></div>
+    <svg id="clock" viewBox="0 0 100 100">
+      <circle class="ring" cx="50" cy="50" r="50"/>
 
-    <g id="marks"></g>
-    <g id="timeblocks"></g>
-    <text x="50" y="50"><tspan id="time" text-anchor="middle"></tspan></text>
-    <line id="needle" x1="50" y1="27" x2="50" y2="2" transform="rotate(0 50 50)"/>
-    <text x="50" y="60"><tspan id="timer" text-anchor="middle"></tspan></text>
-  </svg>
+      <g id="marks"></g>
+      <g id="timeblocks"></g>
+      <text x="50" y="50"><tspan id="time" text-anchor="middle"></tspan></text>
+      <line id="needle" x1="50" y1="27" x2="50" y2="2" transform="rotate(0 50 50)"/>
+      <text x="50" y="60"><tspan id="timer" text-anchor="middle"></tspan></text>
+    </svg>
+</div>
 
   <script type="text/javascript">
     // Draw all clock lines
